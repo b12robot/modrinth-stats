@@ -1,4 +1,5 @@
 ﻿[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$Host.UI.RawUI.WindowTitle = "Modrinth Stats"
 $ProgressPreference = 'SilentlyContinue'
 
 $Versions = @(
@@ -65,7 +66,7 @@ if (-not $Data -or $Data.Count -ne $Versions.Count -or $TimeDifference -gt $Vali
 				$Limit = [int]$Response.Headers["X-Ratelimit-Limit"]
 				$Remaining = [int]$Response.Headers["X-Ratelimit-Remaining"]
 				$Reset = [int]$Response.Headers["X-Ratelimit-Reset"]
-				Write-Host ("[INFO] {0,-$MaxVersionLength} │ {1,-$MaxLoaderLength} -> {2,-6} hits │ Limit: {3,-4} │ Remaining: {4,-4} │ Reset: {5,-4}" -f $Version, $Loader, $Hits, $Limit, $Remaining, $Reset) -ForegroundColor Cyan
+				Write-Host ("[INFO] {0,-$MaxVersionLength} │ {1,-$MaxLoaderLength} -> {2,-6} │ Limit: {3,-4} │ Remaining: {4,-4} │ Reset: {5,-4}" -f $Version, $Loader, $Hits, $Limit, $Remaining, $Reset) -ForegroundColor Cyan
 				$Threshold = [math]::Max([int]($Limit * 0.1), 4)
 				if ($Remaining -lt $Threshold -and $Remaining -gt 0) {
 					$DynamicDelay = ($Reset / $Remaining) * 1000
