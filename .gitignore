@@ -1,4 +1,6 @@
 *
+!assets/
+!assets/**
 !.editorconfig
 !.gitattributes
 !.gitignore
