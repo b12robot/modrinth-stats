@@ -1,9 +1,11 @@
 *
-!assets/
-!assets/**
+!.github/
+!.github/**
 !.editorconfig
 !.gitattributes
 !.gitignore
 !LICENSE
 !README.md
+!assets/
+!assets/**
 !modrinth-stats.ps1
